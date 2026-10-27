@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raúl Yagüe · Sistemas y Ciberseguridad</title>
+  <meta name="description" content="Portfolio de Raúl Yagüe Hidalgo, estudiante de ASIR especializado en administración de sistemas, redes y ciberseguridad.">
+  <meta name="author" content="Raúl Yagüe Hidalgo">
+  <meta property="og:title" content="Raúl Yagüe · Sistemas y Ciberseguridad">
+  <meta property="og:description" content="Administración de sistemas Linux y Windows, redes, Active Directory y ciberseguridad defensiva.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#07090d">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307090d'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='monospace' font-weight='700' font-size='30' fill='%2300ff9c'%3ERY%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <canvas id="bg" aria-hidden="true"></canvas>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <a href="#inicio" class="nav__logo" aria-label="Inicio">
+      <span class="prompt">~/</span>raul<span class="cursor-blink">_</span>
+    </a>
+    <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav__menu" id="navMenu" aria-label="Navegación principal">
+      <a href="#sobre-mi"><span class="num">01.</span>sobre_mí</a>
+      <a href="#experiencia"><span class="num">02.</span>trayectoria</a>
+      <a href="#proyectos"><span class="num">03.</span>proyectos</a>
+      <a href="#skills"><span class="num">04.</span>skills</a>
+      <a href="#contacto" class="btn btn--ghost btn--sm">contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="inicio">
+      <div class="hero__text">
+        <p class="eyebrow"><span class="dot"></span> Disponible para prácticas y primer empleo</p>
+        <h1 class="hero__title">
+          Raúl Yagüe<br>
+          <span class="grad">Sistemas &amp; Ciberseguridad</span>
+        </h1>
+        <p class="hero__lead">
+          Estudiante de <strong>2º de ASIR</strong> en Xtart Alcorcón. Me gusta entender cómo funciona una infraestructura
+          por dentro para poder <strong>bastionarla</strong>: redes segmentadas, Active Directory, Linux y el modelo
+          <strong>Zero Trust</strong>.
+        </p>
+        <div class="hero__cta">
+          <a href="#proyectos" class="btn btn--primary">Ver proyectos <span aria-hidden="true">→</span></a>
+          <a href="https://github.com/RUYA237" target="_blank" rel="noopener" class="btn btn--ghost">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5Z"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+
+      <div class="terminal hero__terminal" aria-label="Terminal decorativo">
+        <div class="terminal__bar">
+          <span class="tl tl--r"></span><span class="tl tl--y"></span><span class="tl tl--g"></span>
+          <span class="terminal__title">raul@homelab: ~</span>
+        </div>
+        <pre class="terminal__body" id="termBody" aria-live="off"></pre>
+      </div>
+
+      <a href="#sobre-mi" class="scroll-hint" aria-label="Bajar">
+        <span></span>
+      </a>
+    </section>
+
+    <!-- ============ SOBRE MÍ ============ -->
+    <section class="section" id="sobre-mi">
+      <h2 class="section__title reveal"><span class="num">01.</span> Sobre mí</h2>
+      <div class="about">
+        <div class="about__text reveal">
+          <p>
+            Soy una persona <strong>curiosa</strong> a la que le gusta investigar y aprender constantemente.
+            Empecé por la administración de sistemas y redes, y cada vez me tira más la parte de
+            <strong>seguridad defensiva</strong>: por qué una red plana es un problema, cómo se limita lo que
+            puede hacer cada usuario, cómo se vigila un servidor.
+          </p>
+          <p>
+            En 2026 hice mis prácticas en <strong>Accenture</strong>, en el área de <strong>Zero Trust Security</strong>,
+            donde estudié los fundamentos de ciberseguridad de Fortinet y tuve mi primer contacto con un entorno
+            profesional de una consultora internacional.
+          </p>
+          <p>
+            Fuera de clase tengo un <strong>homelab</strong> para desplegar servicios propios, resuelvo máquinas en
+            <strong>Hack The Box</strong> y salgo en bici: el ciclismo me ha enseñado más sobre constancia que
+            cualquier asignatura.
+          </p>
+        </div>
+
+        <ul class="stats reveal" aria-label="Datos rápidos">
+          <li><span class="stats__n" data-count="2">0</span><span class="stats__l">certificaciones<br>Fortinet NSE</span></li>
+          <li><span class="stats__n" data-count="5">0</span><span class="stats__l">sedes en red<br>diseñadas (OSPF)</span></li>
+          <li><span class="stats__n" data-count="3">0</span><span class="stats__l">contenedores<br>orquestados</span></li>
+          <li><span class="stats__n">B2</span><span class="stats__l">inglés<br>British Council</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ TRAYECTORIA ============ -->
+    <section class="section" id="experiencia">
+      <h2 class="section__title reveal"><span class="num">02.</span> Trayectoria</h2>
+      <ol class="timeline">
+        <li class="timeline__item reveal">
+          <span class="timeline__date">Abr – May 2026</span>
+          <div class="card">
+            <span class="tag tag--accent">Prácticas</span>
+            <h3>Administración de Sistemas / Ciberseguridad · Zero Trust Security</h3>
+            <p class="card__org">Accenture</p>
+            <ul>
+              <li>Fundamentos de ciberseguridad de Fortinet y conceptos del modelo Zero Trust.</li>
+              <li>Primer contacto con un entorno profesional de ciberseguridad y sistemas en una consultora internacional.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="timeline__item reveal">
+          <span class="timeline__date">Sep 2025 – Jun 2027</span>
+          <div class="card">
+            <span class="tag">Formación</span>
+            <h3>CFGS Administración de Sistemas Informáticos en Red (ASIR)</h3>
+            <p class="card__org">Xtart Alcorcón · especialización en ciberseguridad</p>
+            <ul>
+              <li>Redes, sistemas operativos, servicios de red, bases de datos, seguridad y alta disponibilidad.</li>
+              <li>Proyectos intermodulares de infraestructura completa para clientes simulados.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="timeline__item reveal">
+          <span class="timeline__date">2023 – 2025</span>
+          <div class="card">
+            <span class="tag">Formación</span>
+            <h3>Bachillerato</h3>
+            <p class="card__org">Colegio SEI Concepción</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ============ PROYECTOS ============ -->
+    <section class="section" id="proyectos">
+      <h2 class="section__title reveal"><span class="num">03.</span> Proyectos</h2>
+
+      <div class="filters reveal" role="group" aria-label="Filtrar proyectos">
+        <button class="filter is-active" data-filter="all">todos</button>
+        <button class="filter" data-filter="infra">infraestructura</button>
+        <button class="filter" data-filter="sec">seguridad</button>
+        <button class="filter" data-filter="web">web</button>
+      </div>
+
+      <div class="projects">
+        <!-- Destacado -->
+        <article class="project project--featured reveal" data-cat="infra sec">
+          <div class="project__media">
+            <img src="assets/img/cloudium.webp" alt="Topología de red de las cinco sedes de Cloudium Labs" loading="lazy" width="960" height="586">
+          </div>
+          <div class="project__body">
+            <p class="project__kicker">Proyecto destacado · 1º ASIR</p>
+            <h3>Cloudium Labs · Infraestructura multisede</h3>
+            <p>
+              Renovación completa de una empresa de <strong>400 empleados en 5 sedes</strong>. En red: VLAN por
+              departamento, <strong>OSPF</strong> entre sedes, <strong>ACL</strong> para aislar departamentos y
+              <strong>NAT</strong> centralizado. En sistemas (mi parte): dominio de <strong>Active Directory</strong>,
+              GPO de hardening, cuotas con FSRM, permisos NTFS con ABE, DC adicional, monitorización y maquetas con Sysprep.
+            </p>
+            <ul class="chips">
+              <li>Cisco PT</li><li>OSPF</li><li>ACL</li><li>Windows Server</li><li>AD DS</li><li>GPO</li><li>FSRM</li>
+            </ul>
+            <div class="project__links">
+              <a href="https://github.com/RUYA237/cloudium-labs-infraestructura" target="_blank" rel="noopener">Ver en GitHub ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project reveal" data-cat="infra">
+          <div class="project__media project__media--code">
+<pre><span class="c">$</span> docker compose ps
+<span class="m">NAME          IMAGE          PORTS</span>
+empresa_web   nginx:alpine   0.0.0.0:<span class="g">80</span>->80
+empresa_api   intranet-api   0.0.0.0:<span class="g">3000</span>->3000
+empresa_db    mysql:8.0      0.0.0.0:<span class="g">3307</span>->3306
+<span class="c">$</span> curl -s localhost/api/dashboard
+{"exito":<span class="g">true</span>, ...}</pre>
+          </div>
+          <div class="project__body">
+            <h3>Intranet corporativa contenerizada</h3>
+            <p>Frontend, API REST en <strong>Node/Express</strong> y <strong>MySQL 8</strong> en tres contenedores con
+              Docker Compose, detrás de <strong>Nginx</strong> como proxy inverso. Operaciones críticas como transacciones con <code>ROLLBACK</code>.</p>
+            <ul class="chips"><li>Docker</li><li>Nginx</li><li>Node.js</li><li>MySQL</li></ul>
+            <div class="project__links"><a href="https://github.com/RUYA237/PROYECTO-WEB-3-TRIMESTRE--1-ASIR" target="_blank" rel="noopener">GitHub ↗</a></div>
+          </div>
+        </article>
+
+        <article class="project reveal" data-cat="web sec">
+          <div class="project__media">
+            <img src="assets/img/xtart-ciber.webp" alt="Página de la especialización en ciberseguridad de XTART" loading="lazy" width="960" height="600">
+          </div>
+          <div class="project__body">
+            <h3>XTART · Campus virtual</h3>
+            <p>Web institucional con login y dashboard, hecha en equipo. Desarrollé la <strong>página de la especialización en ciberseguridad</strong>.</p>
+            <ul class="chips"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Equipo</li></ul>
+            <div class="project__links"><a href="https://github.com/Hidekii1/1CFGS-XTART" target="_blank" rel="noopener">GitHub ↗</a></div>
+          </div>
+        </article>
+
+        <article class="project reveal" data-cat="web">
+          <div class="project__media">
+            <img src="assets/img/geoscorp.webp" alt="Portada de la web de Geo's Corp" loading="lazy" width="960" height="600">
+          </div>
+          <div class="project__body">
+            <h3>Geo's Corp · Web corporativa</h3>
+            <p>Sitio multipágina para una start-up tecnológica ficticia, con HTML5 semántico y CSS responsive.</p>
+            <ul class="chips"><li>HTML</li><li>CSS</li></ul>
+            <div class="project__links"><a href="https://github.com/RUYA237/Proyecto-2-TRIMESTRE--1-ASIR" target="_blank" rel="noopener">GitHub ↗</a></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="wip reveal">
+        <span class="wip__dot"></span>
+        <p><strong>En curso · 2º ASIR:</strong> infraestructura de una asesoría con 3 sedes — firewall con <code>nftables</code>,
+          VPN, Active Directory con dos controladores, PostgreSQL, monitorización y copias de seguridad.</p>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="section" id="skills">
+      <h2 class="section__title reveal"><span class="num">04.</span> Skills</h2>
+      <div class="skills">
+        <div class="skill-group reveal">
+          <h3><span class="ico">🔐</span> Seguridad</h3>
+          <ul class="chips chips--lg">
+            <li>Zero Trust</li><li>Hardening</li><li>Nmap</li><li>ACL</li><li>Hack The Box</li><li>Fortinet NSE 1-2</li>
+          </ul>
+        </div>
+        <div class="skill-group reveal">
+          <h3><span class="ico">🖥️</span> Sistemas</h3>
+          <ul class="chips chips--lg">
+            <li>Linux (Fedora, Ubuntu)</li><li>Windows Server</li><li>Active Directory</li><li>GPO</li><li>DNS / DHCP</li><li>Bash</li>
+          </ul>
+        </div>
+        <div class="skill-group reveal">
+          <h3><span class="ico">🌐</span> Redes</h3>
+          <ul class="chips chips--lg">
+            <li>VLAN</li><li>Subnetting</li><li>OSPF</li><li>NAT</li><li>Cisco Packet Tracer</li>
+          </ul>
+        </div>
+        <div class="skill-group reveal">
+          <h3><span class="ico">📦</span> Contenedores y desarrollo</h3>
+          <ul class="chips chips--lg">
+            <li>Docker</li><li>Docker Compose</li><li>Nginx</li><li>Máquinas virtuales</li><li>Python</li><li>Node.js</li><li>MySQL</li><li>HTML/CSS/JS</li><li>Git</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="certs reveal">
+        <h3>Certificaciones</h3>
+        <ul>
+          <li><span class="cert__badge">NSE 1</span><span>Getting Started in Cybersecurity 3.0 <em>· Fortinet</em></span></li>
+          <li><span class="cert__badge">NSE 2</span><span>Technical Introduction to Cybersecurity 3.0 <em>· Fortinet</em></span></li>
+          <li><span class="cert__badge">B2</span><span>Inglés (MCER) <em>· British Council</em></span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ CONTACTO ============ -->
+    <section class="section contact" id="contacto">
+      <p class="section__kicker reveal"><span class="num">05.</span> ¿Hablamos?</p>
+      <h2 class="contact__title reveal">Busco mi primera oportunidad</h2>
+      <p class="contact__text reveal">
+        Si tienes un puesto de prácticas o junior en sistemas, redes o ciberseguridad, escríbeme.
+        Aporto compromiso, ganas de aprender y buen rollo en el equipo.
+      </p>
+      <div class="contact__actions reveal">
+        <a href="mailto:info.rauly@gmail.com" class="btn btn--primary btn--lg">info.rauly@gmail.com</a>
+        <button class="btn btn--ghost btn--lg" id="copyMail" type="button" data-mail="info.rauly@gmail.com">Copiar email</button>
+      </div>
+      <ul class="socials reveal">
+        <li><a href="https://www.linkedin.com/in/ra%C3%BAl-yag%C3%BCe-hidalgo-1b19a4390" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/RUYA237" target="_blank" rel="noopener">GitHub</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p><span class="prompt">$</span> echo "Hecho a mano con HTML, CSS y JS · © <span id="year"></span> Raúl Yagüe"</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
